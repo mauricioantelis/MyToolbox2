@@ -13,7 +13,11 @@ Reference: Robert Oostenveld, Pascal Fries, Eric Maris, and Jan-Mathijs Schoffel
 3) Please, let me know if there are functions, code, or methods that are not properly acknowledge, and I will amend it.
 
 
-## Example of the EEG data structure which is the one used in the Fieldtrip toolbox (https://www.fieldtriptoolbox.org/)
+## EEG data structure 
+
+- We used the EEG data structure of the Fieldtrip toolbox (https://www.fieldtriptoolbox.org/)
+
+- Example 
 
 EEG.fsample    = 256;
 
@@ -23,12 +27,12 @@ EEG.time       = cell(1,Ntrials);
 
 EEG.label      = cell(Nchannels,1);
 
-EEG.trial --> 1 × Ntrials cell array
+- Description
 
+EEG.trial --> 1 × Ntrials cell array
 {Nchannels×Nsamples double} {Nchannels×Nsamples double} ... {Nchannels×Nsamples double}
 
 EEG.time --> 1 × Ntrials cell array
-
 {1×Nsamples double} {1×Nsamples double} ... {1×Nsamples double}
 
 EEG.label --> Nchannels × 1 cell array
