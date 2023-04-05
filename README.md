@@ -1,8 +1,9 @@
-# MyToolbox2
+# Toolbox for EEG
 Matlab functions for EEG processing and analysis
 
 
-## Acknowledgments:
+
+## Acknowledgments
 
 1) The EEG data structure and many functions used here are from the Fieldtrip toolbox (https://www.fieldtriptoolbox.org/).
 
@@ -11,6 +12,7 @@ Reference: Robert Oostenveld, Pascal Fries, Eric Maris, and Jan-Mathijs Schoffel
 2) There are other functions from third parties. See references in the information of the functions
 
 3) Please, let me know if there are functions, code, or methods that are not properly acknowledge, and I will amend it.
+
 
 
 ## EEG data structure 
