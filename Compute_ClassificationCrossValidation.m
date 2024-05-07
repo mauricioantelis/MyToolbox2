@@ -172,5 +172,5 @@ end % for ifold = 1:Nfolds
 % # Print results
 if DoPrint==1 && Nclasses==2
     fprintf('Cross-validation results \n')
-    fprintf('ACC=%1.4f  |   TPR=%1.4f  |   TNR=%1.4f \n',mean(ACC),mean(TPR),mean(TNR))
+    fprintf('ACC=%1.4f  |   TNR=%1.4f  |   TPR=%1.4f \n',mean(ACC),mean(TNR),mean(TPR))
 end

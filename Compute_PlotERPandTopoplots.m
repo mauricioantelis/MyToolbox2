@@ -21,14 +21,9 @@ if ~isfield(cfg,'Ylim')
     end
 end
 
+% Define colors for each signal
 colors = distinguishable_colors(size(AVG.avg,1),{'w','k'});
 % colors = linspecer(size(AVG.avg,1));
-% Visualize the colors:
-% c1 = distinguishable_colors(16,{'w','k'});
-% c2 = linspecer(16);
-% figure
-% subplot(2,1,1), image(reshape(c1,[1 size(c1)]))
-% subplot(2,1,2), image(reshape(c2,[1 size(c2)]))
 
 
 %% PLOT ERP
@@ -41,10 +36,10 @@ figure
 % # Plot ERP
 subplot(2,1,1), hold on
 if isfield(cfg,'ichan')
-    plot(AVG.time,AVG.avg(cfg.ichan,:),'Color',[0.00,0.45,0.74],'LineWidth',cfg.LineWidth);
+    plot(AVG.time,AVG.avg(cfg.ichan,:), 'LineWidth',cfg.LineWidth, 'Color',[0.00,0.45,0.74] );
 else
     for ichan=1:size(AVG.avg,1)
-        plot(AVG.time,AVG.avg(ichan,:),'Color',[0.00,0.45,0.74],'LineWidth',cfg.LineWidth,'Color',colors(ichan,:));
+        plot(AVG.time,AVG.avg(ichan,:), 'LineWidth',cfg.LineWidth, 'Color',colors(ichan,:) );
     end
 end
 xline(0 , 'Color','k','LineWidth',1, 'LineStyle','-')

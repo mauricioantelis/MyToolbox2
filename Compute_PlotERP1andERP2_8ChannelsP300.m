@@ -23,7 +23,12 @@ end
 
 % # ---------------------------------------------
 % # Define P300 position of the 8 channels in a 4x3 grid
-POSITION = [2 5 7 8 9 10 12 11];
+if strcmp(cfg.PositionSystem,'P300')
+    POSITION = [2 5 7 8 9 10 12 11];
+elseif strcmp(cfg.PositionSystem,'Unicorn')
+    POSITION = [2 4 5 6 8 10 11 12];
+end
+
 
 
 
@@ -85,7 +90,14 @@ clear ans CHANNELS EEGdiff POSITION
 
 % # ---------------------------------------------
 % # Plot axis information
-subplot(8,3,[4 7]), cla, hold on
+%subplot(8,3,[4 7]), cla, hold on
+if strcmp(cfg.PositionSystem,'P300')
+    subplot(8,3,[4 7])
+elseif strcmp(cfg.PositionSystem,'Unicorn')
+    subplot(4,3,1)
+end
+cla, hold on
+
 line([-0.0 0.0],[-cfg.Ylim +cfg.Ylim],'color','k','LineWidth',0.3,'LineStyle','-')
 line([EEG1AVG.time(1) EEG1AVG.time(end)],[  0   0],'color','k','LineWidth',0.5,'LineStyle','-')
 xlabel('Time (s)','FontSize',10), ylabel('Amplitude (\muV)','FontSize',10)
@@ -96,7 +108,14 @@ set(gca,'Color','None')
 
 % # ---------------------------------------------
 % # Print legend
-subplot(8,3,[6 9]), cla, hold on
+%subplot(8,3,[6 9]), cla, hold on
+if strcmp(cfg.PositionSystem,'P300')
+    subplot(8,3,[6 9])
+elseif strcmp(cfg.PositionSystem,'Unicorn')
+    subplot(4,3,3)
+end
+cla, hold on
+
 p1=plot(EEG1AVG.time,EEG1AVG.avg(ichan,:),'LineWidth',1,'Color',[0.00,0.45,0.74]);
 if ~isempty(EEG0AVG)
     p2=plot(EEG0AVG.time,EEG0AVG.avg(ichan,:),'LineWidth',1,'Color',[0.85,0.33,0.10]);

@@ -36,7 +36,12 @@ figure, hold on
 
 % # ---------------------------------------------
 % # Plot channels
-POSITION = [2 5 7 8 9 10 12 11];
+if strcmp(cfg.PositionSystem,'P300')
+    POSITION = [2 5 7 8 9 10 12 11];
+elseif strcmp(cfg.PositionSystem,'Unicorn')
+    POSITION = [2 4 5 6 8 10 11 12];
+end
+
 
 % # ---------------------------------------------
 % # Plot trials
@@ -67,7 +72,14 @@ end % for ichan = 1:8
 
 % # ---------------------------------------------
 % # Plot axis information
-subplot(8,3,[4 7]), cla, hold on
+%subplot(8,3,[4 7]), cla, hold on
+if strcmp(cfg.PositionSystem,'P300')
+    subplot(8,3,[4 7])
+elseif strcmp(cfg.PositionSystem,'Unicorn')
+    subplot(4,3,1)
+end
+cla, hold on
+
 line([-0.0 0.0],[-cfg.Ylim +cfg.Ylim],'color','k','LineWidth',0.3,'LineStyle','-')
 line([EEGtrials.time(1) EEGtrials.time(end)],[  0   0],'color','k','LineWidth',0.5,'LineStyle','-')
 xlabel('Time (s)','FontSize',10), ylabel('Amplitude (\muV)','FontSize',10)
@@ -78,7 +90,14 @@ set(gca,'Color','None')
 
 % # ---------------------------------------------
 % # Print legend information
-subplot(8,3,[6 9]), cla, hold on
+% subplot(8,3,[6 9]), cla, hold on
+if strcmp(cfg.PositionSystem,'P300')
+    subplot(8,3,[6 9])
+elseif strcmp(cfg.PositionSystem,'Unicorn')
+    subplot(4,3,3)
+end
+cla, hold on
+
 p1=plot(EEGtrials.time,squeeze(EEGtrials.trial(1,ichan,:)),'Color',[0.65 0.65 0.65]);
 p2=plot(EEGavg.time,EEGavg.avg(ichan,:),'Color',[0 0.4470 0.7410]);
 p3=area([0 0.2],[cfg.Ylim cfg.Ylim],0,'FaceColor',[0 0.4470 0.7410],'EdgeColor',[0 0.4470 0.7410],'FaceAlpha',0.8);

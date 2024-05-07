@@ -11,5 +11,12 @@ c = [ ...
 ];
 
 
+% Visualize the colors:
+% c1 = distinguishable_colors(16,{'w','k'});
+% c2 = linspecer(16);
+% figure
+% subplot(2,1,1), image(reshape(c1,[1 size(c1)]))
+% subplot(2,1,2), image(reshape(c2,[1 size(c2)]))
+
 
 
